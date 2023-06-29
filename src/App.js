@@ -1,5 +1,4 @@
 import "./App.css";
-import AddItem from "./components/AddItem";
 import TableEntry from "./components/TableEntry";
 import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';

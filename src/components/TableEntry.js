@@ -12,6 +12,7 @@ const TableEntry = () => {
 
   const salesrecordsCollectionRef = collection(db, "salesrecord");
 
+  //eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     const getSalesrecords = async () => {
       try {
@@ -22,15 +23,14 @@ const TableEntry = () => {
         }));
         
         setSalesRecords(filteredData);
-        console.log(filteredData);
+        // console.log(filteredData);
       } catch (err) {
         console.error(err);
       }
     };
 
     getSalesrecords();
-    
-    console.log("salesrecords: " +salesrecords);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleLogOut = async () => {

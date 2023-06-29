@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 // import { auth, googleAuthProvider } from '../firebase';
 import { useNavigate } from "react-router-dom";
-import { auth, googleProvider, db } from "../firebaseconfig";
+import { auth, googleProvider } from "../firebaseconfig";
 import {
   createUserWithEmailAndPassword,
   signInWithPopup,
@@ -17,20 +17,20 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
-  const [user, setUser] = useState({
-    email: "",
-    password: "",
-  });
+  // const [user, setUser] = useState({
+  //   email: "",
+  //   password: "",
+  // });
 
-  const userHandler = (e) => {
-    const [name, value] = e.target;
-    setUser((pre) => {
-      return {
-        ...pre,
-        [name]: value,
-      };
-    });
-  };
+  // const userHandler = (e) => {
+  //   const [name, value] = e.target;
+  //   setUser((pre) => {
+  //     return {
+  //       ...pre,
+  //       [name]: value,
+  //     };
+  //   });
+  // };
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -59,12 +59,12 @@ const Login = () => {
   const handleSignUp = async (e) => {
     e.preventDefault();
 
-    if (email == "" || !email.includes("@")) {
+    if (email === "" || !email.includes("@")) {
       setInterval(() => {
         setError("");
       }, 5000);
       return setError("please fill all fields");
-    } else if (password == "" || !password.length >= 6) {
+    } else if (password === "" || !password.length >= 6) {
       setInterval(() => {
         setError("");
       }, 5000);
