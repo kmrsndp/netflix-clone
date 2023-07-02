@@ -8,9 +8,8 @@ import "./navbar.css";
 
 const Navbar1 = () => {
   const navigate = useNavigate();
-  const [showMediaIcons, setShowMediaIcons] = useState(false);
+  // const [showMediaIcons, setShowMediaIcons] = useState(false);
   const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
@@ -19,7 +18,6 @@ const Navbar1 = () => {
       } else {
         setUser(null);
       }
-      setLoading(false);
     });
 
     return () => {
