@@ -1,18 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { signOut } from "firebase/auth";
-import { auth, db } from "../firebaseconfig";
-import { useNavigate } from "react-router-dom";
+import { db } from "../firebaseconfig";
 import { getDocs, collection } from "firebase/firestore";
 import TableRow from "./TableRow";
 
 const TableEntry = () => {
-  const navigate = useNavigate();
+  
 
   const [salesrecords, setSalesRecords] = useState([]);
 
   const salesrecordsCollectionRef = collection(db, "salesrecord");
 
-  //eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     const getSalesrecords = async () => {
       try {
@@ -21,9 +18,7 @@ const TableEntry = () => {
           ...doc.data(),
           id: doc.id,
         }));
-        
         setSalesRecords(filteredData);
-        // console.log(filteredData);
       } catch (err) {
         console.error(err);
       }
@@ -33,22 +28,10 @@ const TableEntry = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const handleLogOut = async () => {
-    try {
-      await signOut(auth);
-    } catch (error) {
-      console.error(error);
-    }
-    navigate("/login");
-  };
+  
 
   return (
     <>
-      <div className="items-end">
-        <button className="bg-red-800 mt-3" onClick={handleLogOut}>
-          Logout
-        </button>
-      </div>
 
       <div>
         <table className="w-full mt-5 mr-5 ml-2">

@@ -1,17 +1,72 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { signOut } from "firebase/auth";
+import { auth } from "../firebaseconfig";
+import { useNavigate } from "react-router-dom";
+import "./navbar.css";
 
+// import { NavLink } from "react-router-dom";
 
-const NavBar = () => {
+const Navbar1 = () => {
+  const navigate = useNavigate();
+  const [showMediaIcons, setShowMediaIcons] = useState(false);
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      if (user) {
+        setUser(user);
+      } else {
+        setUser(null);
+      }
+      setLoading(false);
+    });
+
+    return () => {
+      unsubscribe();
+    };
+  }, []);
+
+  const handleLogOut = async () => {
+    try {
+      await signOut(auth);
+    } catch (error) {
+      console.error(error);
+    }
+    navigate("/login");
+  };
+
   return (
-    <div>
-      <div
-        className="flex bg-slate-600 will-change-auto items-center justify-center text-gray-200 
-    h-12 py-3 text-xl "
-      >
-        Lakhshmi Narayan Enterprises
-      </div>
-    </div>
+    <>
+      <nav className="main-nav">
+        {/* 1st logo part  */}
+        <div className="logo ml-8">
+          <h2>
+            <span>L</span>akshmi
+            <span>N</span>arayan
+            <span>E</span>nterprise
+          </h2>
+        </div>
+
+        <div className="menu-link">
+          <ul>
+            <li>Home</li>
+            <li>about</li>
+            <li>services</li>
+            <li>contact</li>
+          </ul>
+        </div>
+
+        {user && (
+          <div className="logout">
+            <button className="mr-8 button-17" onClick={handleLogOut}>
+              Log out
+            </button>
+          </div>
+        )}
+      </nav>
+    </>
   );
 };
 
-export default NavBar;
+export default Navbar1;

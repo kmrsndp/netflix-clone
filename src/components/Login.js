@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-// import { auth, googleAuthProvider } from '../firebase';
 import { useNavigate } from "react-router-dom";
 import { auth, googleProvider } from "../firebaseconfig";
 import {
@@ -17,20 +16,6 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
-  // const [user, setUser] = useState({
-  //   email: "",
-  //   password: "",
-  // });
-
-  // const userHandler = (e) => {
-  //   const [name, value] = e.target;
-  //   setUser((pre) => {
-  //     return {
-  //       ...pre,
-  //       [name]: value,
-  //     };
-  //   });
-  // };
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -94,9 +79,10 @@ const Login = () => {
 
   return (
     <div className="bg-slate-500 max-h-full h-full login-page justify-center items-center ">
-      <div className="mt-3 flex items-center flex-col justify-center mr-10">
-        <h2>Login with Email and Password</h2>
-        <form className="flex flex-col  space-y-3" onSubmit={handleEmailLogin}>
+      <div className="mt-3 flex items-center flex-col justify-center mr-10  rounded-xl bg-gray-300"
+      >
+        <h2 className="font-bold mt-3">Login</h2>
+        <form className="flex flex-col space-y-3 mt-5 mb-5 mr-8 ml-8" onSubmit={handleEmailLogin}>
           <input
             type="email"
             placeholder="Email"
@@ -113,15 +99,17 @@ const Login = () => {
             onChange={handlePasswordChange}
             required
           />
-          <button className="bg-green-800 shadow-lg" type="submit">
-            Login
+          <button className="button-success" type="submit">
+          {/* bg-green-800 shadow-lg font-semibold */}
+            Log in
           </button>
           <button
-            className="bg-slate-800 shadow-lg"
+            className="button-signup"
+            // bg-gray-600 shadow-lg font-semibold
             type="submit"
             onClick={handleSignUp}
           >
-            SignUp
+            Sign up
           </button>
           {error && <p>{error}</p>}
         </form>
