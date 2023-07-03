@@ -4,7 +4,7 @@ import { auth } from "../firebaseconfig";
 import { useNavigate } from "react-router-dom";
 import "./navbar.css";
 
-// import { NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const Navbar1 = () => {
   const navigate = useNavigate();
@@ -40,18 +40,18 @@ const Navbar1 = () => {
         {/* 1st logo part  */}
         <div className="logo ml-8">
           <h2>
-            <span>L</span>akshmi
+            <span>L</span>axmi
             <span>N</span>arayan
-            <span>E</span>nterprise
+            <span>E</span>nterprises
           </h2>
         </div>
 
-        <div className="menu-link">
+        <div className="menu-link mobile-menu-link">
           <ul>
-            <li>Home</li>
-            <li>about</li>
-            <li>services</li>
-            <li>contact</li>
+            <NavLink>Home</NavLink>
+            <NavLink>about</NavLink>
+            <NavLink>services</NavLink>
+            <NavLink>contact</NavLink>
           </ul>
         </div>
 

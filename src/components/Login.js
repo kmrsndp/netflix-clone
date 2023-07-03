@@ -118,13 +118,13 @@ const Login = () => {
       <div className="mt-3 flex items-center flex-col justify-center ml-10">
         <div className="flex flex-col  space-y-4">
           <button
-            className="bg-gray-100 shadow-lg items-center flex flex-row space-x-2"
+            className="bg-gray-100 shadow-lg items-center flex flex-row space-x-2 hover:bg-gray-300 rounded-full"
             onClick={handleGoogleLogin}
           >
             <FcGoogle></FcGoogle>
             <span>Login with Google</span>
           </button>
-          <button className="bg-gray-600 shadow-lg items-center flex flex-row space-x-2" 
+          <button className="bg-gray-500 shadow-lg items-center flex flex-row space-x-2 hover:bg-gray-600 rounded-full" 
           onClick={handleMobileLogin}>
             <BsPhoneFill></BsPhoneFill>
             <span>Login with Phone</span>
