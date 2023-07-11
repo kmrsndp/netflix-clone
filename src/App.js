@@ -5,6 +5,9 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import { auth } from "./firebaseconfig";
 import Login from "./components/Login";
 import Navbar from "./components/NavBar";
+import About from "./components/About";
+import Services from "./components/Services";
+import Contact from "./components/Contact";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -37,6 +40,9 @@ function App() {
         <Route path="/home" element={user ? <TableEntry /> : <Navigate to="/login" />} />
         <Route path="/" element={user ? <Navigate to="/home" /> : <Navigate to="/login" />} />
         <Route path="/app" element={<Login></Login>} />
+        <Route path="/about" element={<About></About>}></Route>
+        <Route path="/services" element={<Services></Services>}></Route>
+        <Route path="/contact" element={<Contact></Contact>}></Route>
       </Routes>
     </Router>
   );

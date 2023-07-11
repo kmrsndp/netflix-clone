@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import "./navbar.css";
 
 import { NavLink } from "react-router-dom";
+import {BiLogOut} from "react-icons/bi"
 
 const Navbar1 = () => {
   const navigate = useNavigate();
@@ -40,25 +41,29 @@ const Navbar1 = () => {
         {/* 1st logo part  */}
         <div className="logo ml-8">
           <h2>
-            <span>L</span>axmi
+            {/* <span>L</span>axmi
             <span>N</span>arayan
-            <span>E</span>nterprises
+            <span>E</span>nterprises */}
+            <span></span>store -
+            <span></span> keeper
           </h2>
         </div>
 
+        {user && 
         <div className="menu-link mobile-menu-link">
           <ul>
-            <NavLink>Home</NavLink>
-            <NavLink>about</NavLink>
-            <NavLink>services</NavLink>
-            <NavLink>contact</NavLink>
+            <NavLink exact to="/">Home</NavLink>
+            <NavLink to="/about">About</NavLink>
+            <NavLink to="/services">Services</NavLink>
+            <NavLink to="/contact">Contact</NavLink>
           </ul>
         </div>
-
+      }
         {user && (
           <div className="logout">
             <button className="mr-8 button-17" onClick={handleLogOut}>
-              Log out
+              <BiLogOut className="mr-2"></BiLogOut>
+              Bye!
             </button>
           </div>
         )}

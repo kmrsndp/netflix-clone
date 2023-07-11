@@ -54,7 +54,7 @@ const TableRow = ({ item }) => {
         {item.Comment}
       </td>
       <td>
-        <button className="bg-red-200 rounded-full h-8 hover:bg-red-400" onClick={() => deleteItem(item.id)}>
+        <button className="" onClick={() => deleteItem(item.id)}>
           <MdDelete ></MdDelete>
         </button>
       </td>
