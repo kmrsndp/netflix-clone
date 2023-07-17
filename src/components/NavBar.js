@@ -52,7 +52,7 @@ const Navbar1 = () => {
         {user && 
         <div className="menu-link mobile-menu-link">
           <ul>
-            <NavLink exact to="/">Home</NavLink>
+            <NavLink end to="/">Home</NavLink>
             <NavLink to="/about">About</NavLink>
             <NavLink to="/services">Services</NavLink>
             <NavLink to="/contact">Contact</NavLink>

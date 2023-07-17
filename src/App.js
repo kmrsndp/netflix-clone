@@ -8,6 +8,7 @@ import Navbar from "./components/NavBar";
 import About from "./components/About";
 import Services from "./components/Services";
 import Contact from "./components/Contact";
+import TableEntryEdit from "./components/TableEntryEdit";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -37,7 +38,7 @@ function App() {
       <Navbar></Navbar>
       <Routes>
         <Route path="/login" element={!user ? <Login /> : <Navigate to="/home" />} />
-        <Route path="/home" element={user ? <TableEntry /> : <Navigate to="/login" />} />
+        <Route path="/home" element={user ? <TableEntryEdit /> : <Navigate to="/login" />} />
         <Route path="/" element={user ? <Navigate to="/home" /> : <Navigate to="/login" />} />
         <Route path="/app" element={<Login></Login>} />
         <Route path="/about" element={<About></About>}></Route>
